@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import http from "http";
 import cors from "cors";
 import { Server } from "socket.io";
-dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
