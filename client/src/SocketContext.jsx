@@ -90,7 +90,33 @@ const ContextProvider = ({ children }) => {
       connectionRef.current.destroy();
     }
 
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+    }
+
     window.location.reload();
+  };
+
+  const toggleAudio = () => {
+    if (stream) {
+      const audioTrack = stream.getAudioTracks()[0];
+      if (audioTrack) {
+        audioTrack.enabled = !audioTrack.enabled;
+        return audioTrack.enabled;
+      }
+    }
+    return false;
+  };
+
+  const toggleVideo = () => {
+    if (stream) {
+      const videoTrack = stream.getVideoTracks()[0];
+      if (videoTrack) {
+        videoTrack.enabled = !videoTrack.enabled;
+        return videoTrack.enabled;
+      }
+    }
+    return false;
   };
 
   return (
@@ -108,6 +134,8 @@ const ContextProvider = ({ children }) => {
         callUser,
         leaveCall,
         answerCall,
+        toggleAudio,
+        toggleVideo,
       }}
     >
       {children}
