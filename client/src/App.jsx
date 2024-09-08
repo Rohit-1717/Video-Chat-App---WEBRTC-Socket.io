@@ -5,40 +5,37 @@ import Typography from "@mui/material/Typography";
 import VideoPlayer from "./components/VideoPlayer";
 import Notifications from "./components/Notifications";
 import Options from "./components/Options";
-import { makeStyles } from "@mui/material";
+import { Box } from "@mui/material";
 
 function App() {
-  const useStyles = makeStyles((theme) => ({
-    appBar: {
-      borderRadius: 15,
-      margin: "30px 100px",
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "600px",
-      border: "2px solid black",
-      [theme.breakpoints.down("xs")]: {
-        width: "90%",
-      },
-    },
-    image: {
-      marginLeft: "15px",
-    },
-    wrapper: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      width: "100%",
-    },
-  }));
-
   return (
-    <>
-      <AppBar position="static" color="primary">
-        <Typography>
-          <h1>Video Chat App</h1>
-        </Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
+      <AppBar
+        position="static"
+        sx={{
+          borderRadius: 2,
+          margin: "30px 100px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          width: { xs: "90%", sm: "600px" },
+          border: "2px solid black",
+          backgroundColor: "white",
+        }}
+      >
+        <Toolbar>
+          <Typography variant="h2" align="center" color="black">
+            Video Chat App
+          </Typography>
+        </Toolbar>
       </AppBar>
 
       {/* Video Player*/}
@@ -48,7 +45,7 @@ function App() {
       <Options>
         <Notifications />
       </Options>
-    </>
+    </Box>
   );
 }
 
