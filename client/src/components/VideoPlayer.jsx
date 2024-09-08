@@ -8,7 +8,7 @@ import { SocketContext } from "../SocketContext";
 const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  height: "100vh",
+  height: "80vh",
   backgroundColor: "#202124",
   color: "white",
 }));
