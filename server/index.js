@@ -1,5 +1,5 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+// import * as dotenv from "dotenv";
+// dotenv.config();
 import express from "express";
 import http from "http";
 import cors from "cors";
@@ -8,7 +8,7 @@ import { Server } from "socket.io";
 const app = express();
 const server = http.createServer(app);
 app.use(cors({
-    origin: '*', // Adjust as needed for production
+    origin: '*', 
     methods: ['GET', 'POST'],
 }));
 
@@ -17,7 +17,7 @@ const io = new Server(server, {
   methods: ["GET", "POST"],
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT  ;
 
 app.get("/", (req, res) => {
   res.send("Server is running");
